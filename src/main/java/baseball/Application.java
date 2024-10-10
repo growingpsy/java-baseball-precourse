@@ -24,6 +24,7 @@ public class Application {
         }
     }
     public static int[] getUserInput() {
+        System.out.print("숫자를 입력해주세요 : ");
         //문자열 입력
         String inputNumber = Console.readLine();
 
@@ -106,16 +107,13 @@ public class Application {
             boolean finish = checkAnswer(userData);
             printStrikeBall(userData);
             if (finish) {
+                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
                 return checkNextGame();
             }
         }
     }
 
-    public static void main(String[] args) {
-        try {
-            while (play()) {}
-        } catch (IllegalArgumentException e) {
-            System.exit(0);
-        }
+    public static void main(String[] args) throws IllegalArgumentException {
+        while (play()) {}
     }
 }
