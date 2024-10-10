@@ -45,6 +45,20 @@ public class Application {
                 inputNumber.charAt(2) - '0'
         };
     }
+    //다음 게임 진행 여부
+    public static boolean checkNextGame() {
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        String inputString = Console.readLine();
+        if (inputString.contentEquals("1")) {
+            return true;
+        } else if (inputString.contentEquals("2")) {
+            return false;
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+
     public static boolean checkAnswer(int[] inputNumber) {
         return (inputNumber[0] == answer1) && (inputNumber[1] == answer2) && (inputNumber[2] == answer3);
     }
