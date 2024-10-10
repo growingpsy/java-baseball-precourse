@@ -99,7 +99,23 @@ public class Application {
 
         System.out.println(printString);
     }
-    public static void main(String[] args) {
+    public static boolean play() throws IllegalArgumentException {
         generateNumber();
+        while (true) {
+            int[] userData = getUserInput();
+            boolean finish = checkAnswer(userData);
+            printStrikeBall(userData);
+            if (finish) {
+                return checkNextGame();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            while (play()) {}
+        } catch (IllegalArgumentException e) {
+            System.exit(0);
+        }
     }
 }
